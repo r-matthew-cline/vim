@@ -6,6 +6,10 @@ call plug#begin('~/.vim/plugged')
 " Make sure to use sinle quotes
 
 Plug 'tomtom/tcomment_vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'editorconfig/editorconfig-vim'
 
 " Initialize plugin system
 call plug#end()
@@ -30,7 +34,34 @@ let mapleader = ','
 " tcomment configs
 
 	" Leader C is the prefix for code related mappings
-	noremap <silent <Leader>cc :TComment<CR>
+	noremap <silent> <Leader>cc :TComment<CR>
 
+" ctrlp configs
 
+	" Leader F is for file related mappings
+	nnoremap <silent> <Leader>f :CtrlP<CR>
+	nnoremap <silent> <Leader>fm :CtrlPMRU<CR>
 
+	" Leader b is for buffer related mappings
+	nnoremap <silent> <Leader>b :CtrlPBuffer<CR> "cycle between buffer
+	nnoremap <silent> <Leader>bb :bn<CR> "create new buffer
+	nnoremap <silent> <Leader>bd :bdelete<CR> "delete the current buffer
+	nnoremap <silent> <Leader>bu :bunload<CR> "unload the current buffer
+	nnoremap <silent> <Leader>bl :setnomodifiable<CR> "lock the current buffer
+
+" lightline configs
+	
+	" Ensure status line always visible
+	set laststatus=2
+
+	" Remove vim mode information line, as it is displayed in the status
+	" line
+	set noshowmode
+
+" General configs
+
+	" Show line numbers
+	set number
+
+	" Reload .vimrc using ',v'
+	map <silent> <Leader>v :source ~/.vimrc<CR>:PlugInstall<CR>:bdelete<CR>:exe ":echo 'vimrc reloaded'"<CR>
