@@ -9,7 +9,6 @@ Plug 'tomtom/tcomment_vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'sheerun/vim-polyglot'
-Plug 'editorconfig/editorconfig-vim'
 
 " Initialize plugin system
 call plug#end()
