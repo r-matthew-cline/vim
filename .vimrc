@@ -64,3 +64,6 @@ let mapleader = ','
 
 	" Reload .vimrc using ',v'
 	map <silent> <Leader>v :source ~/.vimrc<CR>:PlugInstall<CR>:bdelete<CR>:exe ":echo 'vimrc reloaded'"<CR>
+
+	" Color Scheme
+	colorscheme onedark
