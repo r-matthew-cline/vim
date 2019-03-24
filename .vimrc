@@ -65,3 +65,8 @@ let mapleader = ','
 	" Reload .vimrc using ',v'
 	map <silent> <Leader>v :source ~/.vimrc<CR>:PlugInstall<CR>:bdelete<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
+" Format JSON
+	map <Leader>pj :%!python -m json.tool<CR>
+
+" Remap switching between panes
+	nnoremap <Leader>w <C-w>
