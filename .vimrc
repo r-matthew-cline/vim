@@ -69,3 +69,7 @@ let mapleader = ','
 
 	" Remap switching windows when in split mode
 	:nnoremap <Leader>w <C-w>
+
+" Format JSON
+	map <Leader>pj :%!python -m json.tool<CR>
+
