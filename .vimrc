@@ -1,11 +1,12 @@
-" Specify a directory for plugins
-" - Avoid using standard Vim directory names like 'plugin'
+" Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
 " You will load your plugins here
 " Make sure to use sinle quotes
 
 Plug 'tomtom/tcomment_vim'
+Plug 'scrooloose/nerdtree'
+Plug 'Valloric/YouCompleteMe'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'sheerun/vim-polyglot'
@@ -40,6 +41,7 @@ let mapleader = ','
 	" Leader F is for file related mappings
 	nnoremap <silent> <Leader>f :CtrlP<CR>
 	nnoremap <silent> <Leader>fm :CtrlPMRU<CR>
+	nnoremap <silent> <Leader>e :NERDTreeToggle<CR>
 
 	" Leader b is for buffer related mappings
 	nnoremap <silent> <Leader>b :CtrlPBuffer<CR> "cycle between buffer
@@ -64,3 +66,6 @@ let mapleader = ','
 
 	" Reload .vimrc using ',v'
 	map <silent> <Leader>v :source ~/.vimrc<CR>:PlugInstall<CR>:bdelete<CR>:exe ":echo 'vimrc reloaded'"<CR>
+
+	" Remap switching windows when in split mode
+	:nnoremap <Leader>w <C-w>
