@@ -72,3 +72,8 @@ let mapleader = ','
 
 " Format JSON
 	map <Leader>pj :%!python -m json.tool<CR>
+
+" Remap the escape key
+   	inoremap jj <esc>
+	nnoremap q <esc>
+	xnoremap q <esc>
