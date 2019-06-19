@@ -1,5 +1,4 @@
-" Specify a directory for plugins
-" - Avoid using standard Vim directory names like 'plugin'
+" Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
 " You will load your plugins here
@@ -64,3 +63,6 @@ let mapleader = ','
 
 	" Reload .vimrc using ',v'
 	map <silent> <Leader>v :source ~/.vimrc<CR>:PlugInstall<CR>:bdelete<CR>:exe ":echo 'vimrc reloaded'"<CR>
+
+	" Remap switching windows when in split mode
+	:nnoremap <Leader>w <C-w>
