@@ -8,8 +8,8 @@ Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Valloric/YouCompleteMe'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'itchyny/lightline.vim'
-Plug 'sheerun/vim-polyglot'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Initialize plugin system
 call plug#end()
@@ -49,15 +49,6 @@ let mapleader = ','
 	nnoremap <silent> <Leader>bd :bdelete<CR> "delete the current buffer
 	nnoremap <silent> <Leader>bu :bunload<CR> "unload the current buffer
 	nnoremap <silent> <Leader>bl :setnomodifiable<CR> "lock the current buffer
-
-" lightline configs
-	
-	" Ensure status line always visible
-	set laststatus=2
-
-	" Remove vim mode information line, as it is displayed in the status
-	" line
-	set noshowmode
 
 " General configs
 
