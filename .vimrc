@@ -15,6 +15,8 @@ Plug 'maximbaz/lightline-ale'
 Plug 'OrangeT/vim-csharp'
 Plug 'pearofducks/ansible-vim'
 Plug 'maksimr/vim-jsbeautify'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Initialize plugin system
 call plug#end()
@@ -55,6 +57,7 @@ let mapleader = ','
 	nnoremap <silent> <Leader>bu :bunload<CR> "unload the current buffer
 	nnoremap <silent> <Leader>bl :setnomodifiable<CR> "lock the current buffer
 
+<<<<<<< HEAD
 " lightline configs
 	
 	" Ensure status line always visible
@@ -115,8 +118,6 @@ let mapleader = ','
 	let g:ale_echo_msg_error_str = 'E'
 	let g:ale_echomsg_warning_str = 'W'
 	let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-
-" General configs
 
 	" Show line numbers
 	set number
