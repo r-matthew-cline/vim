@@ -9,7 +9,12 @@ Plug 'scrooloose/nerdtree'
 Plug 'Valloric/YouCompleteMe'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'sheerun/vim-polyglot'
+Plug 'OmniSharp/omnisharp-vim'
+Plug 'w0rp/ale'
+Plug 'maximbaz/lightline-ale'
+Plug 'OrangeT/vim-csharp'
+Plug 'pearofducks/ansible-vim'
+Plug 'maksimr/vim-jsbeautify'
 
 " Initialize plugin system
 call plug#end()
@@ -58,6 +63,58 @@ let mapleader = ','
 	" Remove vim mode information line, as it is displayed in the status
 	" line
 	set noshowmode
+
+	" Lightline ALE integration settings
+	let g:lightline = {}
+	let g:lightline.component_expand = {
+		\ 'linter_checking': 'lightline#ale#checking',
+		\ 'linter_warnings': 'lightline#ale#warnings',
+		\ 'linter_errors': 'lightline#ale#errors',
+		\ 'linter_ok': 'lightline#ale#ok',
+		\ }
+	let g:lightline.component_type = {
+		\ 'linter_checking': 'left',
+		\ 'linter_warnings': 'warning',
+		\ 'linter_errors': 'errors',
+		\ 'linter_ok': 'left',
+		\ }
+	let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ]] }
+
+
+" OmniSharp configs
+	
+	" OmniSharp Highlighting
+	let g:OmniSharp_highlight_types = 2
+
+	" Use stdio roslyn server
+	let g:OmniSharp_server_stdio = 1
+	
+	" For using on tty terminal
+	let g:OmniSharp_selector_ui = ''
+
+" ALE configs
+
+	" Status Line Function
+	function! LinterStatus() abort
+		let l:counts = ale#statusline#Count(bufnr(''))
+		let l:all_errors = l:counts.error + 1:counts.style_error
+		let l:all_non_errors = l:counts.total - l:all_errors
+		return l:counts.total == 0 ? 'OK' : printf(
+					\ '%dW %dE',
+					\ all_non_errors,
+					\ all_errors
+					\)
+	endfunction
+
+	set statusline=%{LinterStatus()}
+
+	" Linters
+	let g:ale_linters = { 'cs': ['OmniSharp'] }
+
+	" Error Output Settings
+	let g:ale_echo_msg_error_str = 'E'
+	let g:ale_echomsg_warning_str = 'W'
+	let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 " General configs
 
