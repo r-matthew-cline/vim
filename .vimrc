@@ -57,7 +57,6 @@ let mapleader = ','
 	nnoremap <silent> <Leader>bu :bunload<CR> "unload the current buffer
 	nnoremap <silent> <Leader>bl :setnomodifiable<CR> "lock the current buffer
 
-<<<<<<< HEAD
 " lightline configs
 	
 	" Ensure status line always visible
