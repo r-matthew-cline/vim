@@ -6,7 +6,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree'
-Plug 'Valloric/YouCompleteMe'
+"Plug 'Valloric/YouCompleteMe'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'OmniSharp/omnisharp-vim'
@@ -15,14 +15,19 @@ Plug 'maximbaz/lightline-ale'
 Plug 'OrangeT/vim-csharp'
 Plug 'pearofducks/ansible-vim'
 Plug 'maksimr/vim-jsbeautify'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
 
 " Initialize plugin system
 call plug#end()
 
 " Create leader key to be used in key configs
 let mapleader = ','
+
+" nerdtree configs
+
+	"Show hidden files
+	let NERDTreeShowHidden=1
 
 " netrw configs
 
