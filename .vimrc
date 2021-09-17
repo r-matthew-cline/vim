@@ -6,7 +6,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree'
-"Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'OmniSharp/omnisharp-vim'
@@ -15,8 +15,8 @@ Plug 'maximbaz/lightline-ale'
 Plug 'OrangeT/vim-csharp'
 Plug 'pearofducks/ansible-vim'
 Plug 'maksimr/vim-jsbeautify'
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Initialize plugin system
 call plug#end()
@@ -139,3 +139,15 @@ let mapleader = ','
    	inoremap jj <esc>
 	nnoremap q <esc>
 	xnoremap q <esc>
+
+set clipboard=unnamed
+
+autocmd TextYankPost * call system('win32yank.exe -i --crlf', @")
+
+function! Paste(mode)
+	    let @" = system('win32yank.exe -o --lf')
+	        return a:mode
+	endfunction
+
+	map <expr> p Paste('p')
+	map <expr> P Paste('P')
