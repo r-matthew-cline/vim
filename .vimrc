@@ -140,14 +140,11 @@ let mapleader = ','
 	nnoremap q <esc>
 	xnoremap q <esc>
 
-set clipboard=unnamed
-
-autocmd TextYankPost * call system('win32yank.exe -i --crlf', @")
-
-function! Paste(mode)
-	    let @" = system('win32yank.exe -o --lf')
-	        return a:mode
-	endfunction
-
-	map <expr> p Paste('p')
-	map <expr> P Paste('P')
+" WSL yank support
+ let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path
+ if executable(s:clip)
+ 	augroup WSLYank
+	     autocmd!
+	     autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+ 	augroup END
+ endif
