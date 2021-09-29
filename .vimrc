@@ -15,8 +15,8 @@ Plug 'maximbaz/lightline-ale'
 Plug 'OrangeT/vim-csharp'
 Plug 'pearofducks/ansible-vim'
 Plug 'maksimr/vim-jsbeautify'
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Initialize plugin system
 call plug#end()
@@ -152,3 +152,12 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 " YouCompleteMe configs
 let g:ycm_auto_hover = 'CursorHold'
 nmap <leader>D <plug>(YCMHover)
+
+" WSL yank support
+ let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path
+ if executable(s:clip)
+ 	augroup WSLYank
+	     autocmd!
+	     autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+ 	augroup END
+ endif
