@@ -6,7 +6,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree'
-"Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'OmniSharp/omnisharp-vim'
@@ -20,6 +20,12 @@ Plug 'maksimr/vim-jsbeautify'
 
 " Initialize plugin system
 call plug#end()
+
+" Indentation
+set autoindent
+set noexpandtab
+set tabstop=4
+set shiftwidth=4
 
 " Create leader key to be used in key configs
 let mapleader = ','
@@ -139,3 +145,10 @@ let mapleader = ','
    	inoremap jj <esc>
 	nnoremap q <esc>
 	xnoremap q <esc>
+
+" YAML spacing
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+" YouCompleteMe configs
+let g:ycm_auto_hover = 'CursorHold'
+nmap <leader>D <plug>(YCMHover)
